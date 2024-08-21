@@ -72,3 +72,16 @@ Thêm người dùng vào LDAP:
 ```
 ldapadd -x -D cn=admin,dc=localhost -W -f newuser.ldif
 ```
+
+# 6. Cấu hình SSO trên ứng dụng của bạn
+Để sử dụng LDAP làm hệ thống SSO, bạn cần tích hợp LDAP với ứng dụng. Đối với ứng dụng PHP, bạn có thể sử dụng thư viện như ldap_connect() và ldap_bind() để xác thực người dùng. Bạn cũng có thể sử dụng các framework hoặc giải pháp có sẵn hỗ trợ LDAP như SimpleSAMLphp hoặc các module LDAP của các hệ thống CMS.
+
+# 7. Kiểm tra và xác thực
+Kiểm tra việc xác thực với LDAP server:
+
+```
+ldapsearch -x -LLL -H ldap:/// -b dc=localhost uid=jdoe
+```
+Nếu kết quả trả về có thông tin của người dùng, việc cấu hình đã thành công.
+
+Sau khi hoàn thành các bước trên, bạn sẽ có một hệ thống LDAP cơ bản có thể được sử dụng để xác thực người dùng trong hệ thống SSO của bạn.
