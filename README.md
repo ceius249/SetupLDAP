@@ -4,7 +4,7 @@ Setup environment LDAP on Ubuntu Server 22
 # 1. Cài đặt OpenLDAP Server
 ```
 sudo apt update
-sudo apt install slapd ldap-utils
+sudo apt install slapd ldap-utils -y
 ```
 
 # 2. Cấu hình OpenLDAP Server
@@ -31,11 +31,11 @@ sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif
 # 4. Cấu hình cơ sở dữ liệu LDAP
 Tạo một tệp LDIF chưa thông tin cơ sở dữ liệu của bạn. Tạo một tệp ví dụ **base.ldif** với nội dung sau
 ```
-dn: ou=people,dc=localhost,dc=vncsg
+dn: ou=people,dc=localhost
 objectClass: organizationalUnit
 ou: people
 
-dn: ou=groups,dc=localhost,dc=vncsg
+dn: ou=groups,dc=localhost
 objectClass: organizationalUnit
 ou: groups
 ```
